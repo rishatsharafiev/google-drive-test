@@ -1,0 +1,17 @@
+.vscode
+.idea
+static-root
+*.py[co]
+*.mo
+__pycache__/
+buyfeedback/settings/.env
+incomedata/
+filecache/
+import/
+export/
+/reports/
+.python-version
+.env
+token.pickle
+credentials.json
+*.xlsx
