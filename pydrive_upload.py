@@ -15,4 +15,11 @@ FILEPATH = config('FILEPATH', cast=str)
 
 test_file = drive.CreateFile({'title': FILENAME})
 test_file.SetContentFile(FILEPATH)
+test_file.InsertPermission({
+    'type':  'anyone',
+    'value': 'anyone',
+    'role':  'reader',
+    'additionalRoles': ['commenter'],
+    'withLink': True,
+})
 test_file.Upload({'convert': True})
