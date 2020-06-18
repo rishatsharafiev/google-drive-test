@@ -28,12 +28,12 @@ gauth.SaveCredentialsFile('credentials_refresh.json')
 drive = GoogleDrive(gauth)
 
 
-FILENAME = config('FILENAME', cast=str)
-FILEPATH = config('FILEPATH', cast=str)
+FILENAME = config('FILENAME')  # если передавать русские названия, то не работает, попробуйте передать название файла напрямую в SetContentFile без decouple
+FILEPATH = config('FILEPATH')  # если передавать русские названия, то не работает, попробуйте передать название файла напрямую в SetContentFile без decouple
 
 test_file = drive.CreateFile({'title': FILENAME})
 test_file.SetContentFile(FILEPATH)
-test_file.Upload({'convert': True})
+test_file.Upload({'convert': True})  # <--- убрать конвертацию, чтобы грузить таблицы с графиками
 test_file.InsertPermission({
     'type':  'anyone',
     'value': 'anyone',
